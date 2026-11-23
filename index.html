@@ -1,0 +1,249 @@
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciclo | Recicla y recibe beneficios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  </head>
+  <body>
+
+  <!-- LANDING -->
+  <div id="landing" class="screen">
+    <header class="top">
+      <a class="brand" href="#" data-screen="landing"><span class="logo"></span>Ciclo</a>
+      <nav>
+        <a href="#como">Cómo funciona</a>
+        <a href="#aliados">Aliados</a>
+        <button class="btn ghost" data-auth="login">Ingresar</button>
+        <button class="btn" data-auth="register">Crear cuenta</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Tu cartón y tu vidrio ya valen algo.</h1>
+        <p>Junta materiales reciclables, nosotros los retiramos en tu casa y tú canjeas descuentos en comercios de tu ciudad.</p>
+        <div class="row">
+          <button class="btn lg" data-auth="register">Empezar ahora</button>
+          <button class="btn ghost lg" data-auth="login">Ya tengo cuenta</button>
+        </div>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <p class="muted">Acumula y gana</p>
+        <div class="flow">
+          <div class="give">
+            <span class="muted" id="heroMat">Vidrio</span>
+            <strong class="big"><span id="heroKg">0</span> kg</strong>
+            <div class="bar"><i id="heroBar" style="width:0"></i></div>
+          </div>
+        
+          <svg class="arrow" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        
+          <div class="get" id="heroCoupon">
+            <span class="pill" id="heroState">Bloqueado</span>
+            <b id="heroTitle">30% de descuento</b>
+            <small id="heroPartner">en tu comida favorita</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como" class="block">
+      <h2>Así funciona</h2>
+      <div class="steps">
+        <div><h3>Junta</h3><p>Separa vidrio, cartón, latas y plástico limpios en tu casa.</p></div>
+        <div><h3>Pide el retiro</h3><p>Si juntaste harto, vamos a buscarlo. Tú eliges el día.</p></div>
+        <div><h3>Canjea</h3><p>Cada kilo suma. Usa tu saldo en cupones de emprendedores locales.</p></div>
+      </div>
+    </section>
+
+    <section id="aliados" class="block alt">
+      <h2>Beneficios de comercios locales</h2>
+      <p class="muted center">Estos son algunos ejemplos de lo que podrás canjear.</p>
+      <div class="grid" id="landingCoupons"></div>
+    </section>
+
+    <footer class="foot">Prototipo para Innovación y emprendimiento - <a href="#" data-staff>Acceso equipo</a></footer>
+  </div>
+
+  <!-- AUTH -->
+  <div id="auth" class="screen" hidden>
+    <div class="auth-wrap">
+      <aside class="auth-side">
+        <a class="brand light" href="#" data-screen="landing"><span class="logo"></span>Ciclo</a>
+        <h2>Menos microbasurales, más vida.</h2>
+        <p>Cada kilo que reciclas con nosotros es un aporte más para disminuir plagas y riesgos de incendios.</p>
+      </aside>
+      <main class="auth-main">
+        <div class="tabs">
+          <button class="tab" data-auth="login">Ingresar</button>
+          <button class="tab" data-auth="register">Crear cuenta</button>
+        </div>
+
+        <form id="loginForm" class="form" novalidate>
+          <h1>Bienvenido de vuelta</h1>
+          <label>Correo<input type="email" name="email" autocomplete="email" required></label>
+          <label>Contraseña<input type="password" name="password" autocomplete="current-password" required></label>
+          <p class="error" role="alert"></p>
+          <button class="btn lg full">Ingresar</button>
+        </form>
+
+        <form id="registerForm" class="form" novalidate hidden>
+          <h1>Crea tu cuenta</h1>
+          <label>Nombre completo<input name="name" autocomplete="name" required></label>
+          <label>Correo<input type="email" name="email" autocomplete="email" required></label>
+          <div class="two">
+            <label>Teléfono<input name="phone" type="tel" placeholder="+56 9 ..."></label>
+            <label>Comuna<input name="comuna" placeholder="Valparaíso"></label>
+          </div>
+          <label>Contraseña<input type="password" name="password" autocomplete="new-password" minlength="6" required></label>
+          <p class="error" role="alert"></p>
+          <button class="btn lg full">Crear cuenta</button>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- EQUIPO -->
+  <div id="staff" class="screen" hidden>
+    <header class="top">
+      <a class="brand" href="#" data-screen="landing"><span class="logo"></span>Ciclo</a>
+      <button class="btn ghost" id="staffExit">Salir</button>
+    </header>
+    <main class="staff-main">
+      <form id="pinForm" class="form card">
+        <h1>Acceso del equipo</h1>
+        <label>PIN<input type="password" name="pin" inputmode="numeric" required></label>
+        <p class="error" role="alert"></p>
+        <button class="btn full">Entrar</button>
+      </form>
+
+      <div id="staffPanel" class="cols" hidden>
+        <div class="card">
+          <h2>Registrar entrega</h2>
+          <p class="muted">Busca al usuario por su ID y suma los kilos recibidos. Sus cupones se habilitan solos.</p>
+          <form id="staffForm" class="form compact">
+            <label>ID de usuario<input name="id" placeholder="CIC-12345" autocomplete="off" required></label>
+            <p class="muted" id="staffUser"></p>
+            <label>Material<select name="mat"></select></label>
+            <label>Kilos recibidos<input name="kg" type="number" min="0.5" step="0.5" required></label>
+            <p class="error" role="alert"></p>
+            <button class="btn full">Registrar y habilitar cupones</button>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Retiros pendientes</h2>
+          <ul class="list" id="staffPickups"></ul>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- APP -->
+  <div id="app" class="screen" hidden>
+    <aside class="side">
+      <a class="brand" href="#" data-screen="landing"><span class="logo"></span>Ciclo</a>
+      <nav class="menu">
+        <button data-go="resumen">Resumen</button>
+        <button data-go="cupones">Cupones</button>
+        <button data-go="retiros">Retiros a domicilio</button>
+        <button data-go="perfil">Mi perfil</button>
+      </nav>
+      <button class="btn ghost full" id="logout">Cerrar sesión</button>
+    </aside>
+
+    <main class="main">
+      <h1 id="hello"></h1>
+
+      <section data-view="resumen">
+        <div class="stats">
+          <div class="card"><p class="muted">Kilos acumulados</p><strong class="big" id="sTotal"></strong></div>
+          <div class="card"><p class="muted">Cupones disponibles hoy</p><strong class="big" id="sAvail"></strong></div>
+          <div class="card"><p class="muted">Cupones canjeados</p><strong class="big" id="sUsed"></strong></div>
+        </div>
+
+        <div class="cols">
+          <div class="card">
+            <h2>Tu saldo por material</h2>
+            <div id="balances"></div>
+          </div>
+          <div class="card">
+            <h2>Tu ID de usuario</h2>
+            <strong class="big id" id="myId"></strong>
+            <p class="muted">Muéstranos este código cuando entregues material o vayamos a retirarlo. Con él habilitamos tus cupones.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Últimos movimientos</h2>
+          <ul class="list" id="history"></ul>
+        </div>
+      </section>
+
+      <section data-view="cupones" hidden>
+        <p class="muted">Cada cupón descuenta kilos de un material de tu saldo.</p>
+        <div class="grid" id="coupons"></div>
+        <h2 class="gap">Mis cupones canjeados</h2>
+        <ul class="list card" id="myCoupons"></ul>
+      </section>
+
+      <section data-view="retiros" hidden>
+        <div class="cols">
+          <div class="card">
+            <h2>Solicitar retiro</h2>
+            <p class="muted">Retiramos desde 10 kg juntando materiales.</p>
+            <form id="pickupForm" class="form compact">
+              <label>Dirección<input name="address" required></label>
+              <label>Material principal<select name="mat"></select></label>
+              <div class="two">
+                <label>Kilos aprox.<input name="kg" type="number" min="10" value="10" required></label>
+                <label>Día preferido<input name="date" type="date" required></label>
+              </div>
+              <p class="error" role="alert"></p>
+              <button class="btn full">Pedir retiro</button>
+            </form>
+          </div>
+          <div class="card">
+            <h2>Mis solicitudes</h2>
+            <ul class="list" id="pickups"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section data-view="perfil" hidden>
+        <div class="card profile">
+          <div class="avatar" id="avatar"></div>
+          <div class="grow">
+            <h2 id="pName"></h2>
+            <p class="muted" id="pMail"></p>
+          </div>
+          <button class="btn ghost" id="editBtn">Editar perfil</button>
+        </div>
+
+        <div class="card" id="pView"></div>
+
+        <form class="card form" id="profileForm" hidden>
+          <h2>Editar perfil</h2>
+          <label>Nombre completo<input name="name" required></label>
+          <div class="two">
+            <label>Teléfono<input name="phone" type="tel"></label>
+            <label>Comuna<input name="comuna"></label>
+          </div>
+          <label>Dirección<input name="address"></label>
+          <div class="row">
+            <button class="btn">Guardar cambios</button>
+            <button type="button" class="btn ghost" id="cancelEdit">Cancelar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status"></div>
+  <script src="script.js"></script>
+  </body>
+  </html>
