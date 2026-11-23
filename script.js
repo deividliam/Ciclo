@@ -257,3 +257,24 @@ function heroDemo() {
 }
 heroDemo();
 store.session && me() ? enterApp() : screen('landing');
+
+/* ===== Menú Hamburguesa ===== */
+const mobileMenuBtn = $('#mobileMenuBtn');
+const mainNav = $('#mainNav');
+
+if (mobileMenuBtn && mainNav) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mainNav.classList.toggle('open');
+    mobileMenuBtn.classList.toggle('active');
+  });
+
+  // Opcional: Cerrar el menú si se hace clic en un enlace de la misma página
+  $$('nav a, nav button').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 860) {
+        mainNav.classList.remove('open');
+        mobileMenuBtn.classList.remove('active');
+      }
+    });
+  });
+}

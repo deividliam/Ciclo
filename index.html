@@ -15,7 +15,16 @@
   <div id="landing" class="screen">
     <header class="top">
       <a class="brand" href="#" data-screen="landing"><span class="logo"></span>Ciclo</a>
-      <nav>
+      
+      <!-- AGREGAR ESTO: Botón hamburguesa -->
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- AGREGAR EL ID="mainNav" AQUÍ -->
+      <nav id="mainNav">
         <a href="#como">Cómo funciona</a>
         <a href="#aliados">Aliados</a>
         <button class="btn ghost" data-auth="login">Ingresar</button>
@@ -112,7 +121,7 @@
   <div id="staff" class="screen" hidden>
     <header class="top">
       <a class="brand" href="#" data-screen="landing"><span class="logo"></span>Ciclo</a>
-      <button class="btn ghost" id="staffExit">Salir</button>
+      <button type="button" class="btn ghost" id="staffExit">Salir</button>
     </header>
     <main class="staff-main">
       <form id="pinForm" class="form card">
