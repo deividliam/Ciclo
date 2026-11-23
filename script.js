@@ -252,7 +252,7 @@ function heroDemo() {
         clearInterval(t); card.classList.add('on'); state.textContent = 'Desbloqueado';
         setTimeout(run, 3000);
       }
-    }, 450);
+    }, 700);
   })();
 }
 heroDemo();
