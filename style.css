@@ -248,6 +248,22 @@ input:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 
     background: rgba(255, 255, 255, .14);
   }
 
+    /* Botones del hero: apilados y del mismo ancho */
+  .hero-text .row {
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .hero-text .row .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* El hero tiene mucho aire arriba en móvil */
+  .hero {
+    padding: 2.5rem 1rem;
+    gap: 2rem;
+  }
   
 
   /* RESTO DE TU APP */
